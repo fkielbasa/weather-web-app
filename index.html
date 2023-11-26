@@ -1,9 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="pl">
 <head>
     <title>Weather App</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <h1>Aplikacja pogodowa</h1>
+<body class="light-mode">
+    <div class="container">
+        <div class="left_bar">
+            <div class="container_logo">
+                <img id="logo" src="./images/logo.svg">
+                <span class="logo_text">MyWeather</span>
+            </div>
+            <form class="search" id="search">
+                <input type="text" id="query">
+                <button onclick="searchCity()"><img id="search_icon" src="./images/search.png"></button>
+            </form>
+            <div class="container_settings">
+                <img id="settings_icon" src="./images/settings_light.png">
+                <span class="settings_text" id="settingsText">Ustawienia</span>
+            </div>   
+        </div>
+        <div class="main">
+            <div id="modal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <div class="mode-container">
+                        <span class="mode_text" id="darkModeText">Tryb ciemny</span>
+                        <label class="switch">
+                            <input type="checkbox" id="darkModeToggle" onclick="toggleDarkMode()">
+                        </label>
+                    </div>
+                    <div class="mode-container">
+                        <span class="mode_text" id="languageText">Język:</span>
+                        <label class="switch">
+                            <input type="checkbox" id="langTogglePL" value="pl" onclick="toggleLanguage(this)">
+                        </label>
+                        <span class="mode_text">PL</span>
+                        <label class="switch">
+                            <input type="checkbox" id="langToggleEN" value="en" onclick="toggleLanguage(this)">
+                        </label>
+                        <span class="mode_text">ENG</span>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <script src="./scripts/settings.js"></script>
+    <script src="./scripts/darkMode.js"></script>
+    <script src="./scripts/language.js"></script>
+    <script src="./scripts/api,js"></script>
+
 </body>
 </html>
