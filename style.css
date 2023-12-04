@@ -2,11 +2,12 @@
 /* styles for light mode (default) */
 :root {
     --color1: rgb(230, 224, 224);
-    --color2: rgb(197, 196, 196);
+    --color2: #b4b4b4;
     --color3: rgb(216, 211, 205);
     --color4: rgb(121, 122, 126);
     --color5: rgb(121, 122, 126);
     --color6: rgb(170, 204, 236);
+    --color7: #d9d9d9;
     --textColor: rgb(255,255,255);
 }
 /* styles for dark mode */
@@ -27,6 +28,7 @@ body {
     background-image: url("./images/background_image.jpg");
     background-position: center;
 }
+
 .container{
     display: flex;  
     width: 60%;
@@ -37,13 +39,33 @@ body {
 }
 .left_bar{
     display: flex;
-    width: 25%;
+    width: 300px;
     height: 100%;
     flex-direction: column;
     padding: 20px 10px;
     align-items: center;
     background-color: var(--color2);
 }
+
+#right_bar{
+    display: flex;
+    width: 700px;
+    height: 100%;
+    justify-content: center;
+    background-color: aqua;
+    flex-direction: column;
+}
+
+#weather_info{
+    display: flex;
+    width: 25%;
+    height: 20%;
+    margin-top: 40px;
+    border-radius: 20px;
+    background-color: white;
+    width: 500px;
+}
+
 .main{
     display: flex;
     width: 75%;
@@ -183,3 +205,5 @@ body {
 input[type="checkbox"] {
     transform: scale(2); 
 }
+
+

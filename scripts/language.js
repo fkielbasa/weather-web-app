@@ -1,6 +1,7 @@
 function changeLanguage(lang) {
     const langTogglePL = document.getElementById('langTogglePL');
     const langToggleEN = document.getElementById('langToggleEN');
+    const queryInput = document.getElementById('query');
 
     if (lang === 'pl') {
         langTogglePL.checked = true;
@@ -8,12 +9,14 @@ function changeLanguage(lang) {
         languageText.textContent = 'Język:';
         settingsText.textContent = 'Ustawienia';
         darkModeText.textContent = 'Tryb ciemny';
+        queryInput.placeholder = 'Szukaj...'
     } else if (lang === 'en') {
         langToggleEN.checked = true;
         langTogglePL.checked = false;
         languageText.textContent = 'Language:';
         settingsText.textContent = 'Settings';
         darkModeText.textContent = 'Dark mode';
+        queryInput.placeholder = 'Search...'
     }
 }
 
