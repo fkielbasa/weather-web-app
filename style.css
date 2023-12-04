@@ -25,6 +25,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    font-family: sans-serif;
     background-image: url("./images/background_image.jpg");
     background-position: center;
 }
@@ -39,7 +40,7 @@ body {
 }
 .left_bar{
     display: flex;
-    width: 300px;
+    width: 25%;
     height: 100%;
     flex-direction: column;
     padding: 20px 10px;
@@ -49,14 +50,13 @@ body {
 
 #right_bar{
     display: flex;
-    width: 700px;
+    width: 75%;
     height: 100%;
-    justify-content: center;
-    background-color: aqua;
+    background-color: var(--color7);
     flex-direction: column;
 }
 
-#weather_info{
+#weather_day_container{
     display: flex;
     width: 25%;
     height: 20%;
@@ -64,14 +64,49 @@ body {
     border-radius: 20px;
     background-color: white;
     width: 500px;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center; 
+    justify-content: space-around
 }
 
-.main{
+#weather_day_icon{
     display: flex;
-    width: 75%;
-    height: 100%;
-    background-color: var(--color1);  
+    width: 105px;
+    height: 105px;
+    margin-left: 15px;
 }
+
+#day_temperature_time_container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 15px;
+}
+
+#info_temp{
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+#info_day{
+    font-size: 20px;
+}
+
+#location_day{
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-left: 30px;
+}
+
+#location_day_icon{
+    width: 30px;
+}
+
+
 .container_logo{
     display: flex;
     align-items: center;
