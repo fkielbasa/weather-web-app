@@ -136,6 +136,48 @@ body {
 }
 
 
+#weather_main_content {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    width: 65%;
+    height: 55%;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    /* background-color: #0080ff; */
+    padding: 10px;
+}
+
+.day_block {
+    display: inline-block;
+    width: 70px;
+    height: 93px;
+    background-color: white;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.text_block{
+    font-weight: 500;
+    font-size: 15px;
+    margin-bottom: 3px;
+}
+
+.icon_block{
+    width: 44px;
+}
+
+.temp_block{
+    font-weight: 500;
+    font-size: 15px;
+    margin-top: 3px;
+}
+
+
 .container_logo{
     display: flex;
     align-items: center;
