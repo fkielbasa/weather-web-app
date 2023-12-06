@@ -135,7 +135,6 @@ body {
     color: #9d9d9d;
 }
 
-
 #weather_main_content {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
@@ -145,9 +144,23 @@ body {
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-    background-color: #0080ff;
+    /* background-color: #0080ff; */
     padding: 10px;
 }
+
+#day_content {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+}
+
+#week_content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0px 40px;
+    margin-top: 10px;
+}
+
 
 .day_block {
     display: inline-block;
@@ -203,7 +216,7 @@ body {
 
 .week_temp_block{
     font-weight: 500;
-    font-size: 15px;
+    font-size: 16px;
 }
 
 
