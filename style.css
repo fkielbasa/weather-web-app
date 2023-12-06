@@ -113,6 +113,28 @@ body {
     width: 30px;
 }
 
+#button_mode_container{
+    display: flex;
+    width: 25%;
+    align-items: center;
+    margin-left: 140px;
+    margin-top: 30px;
+}
+
+.mode_button{
+    margin-left: 16px;
+}
+
+#day_button{
+    color: '#aaccec';
+    cursor: pointer;
+}
+
+#week_button{
+    cursor: pointer;
+    color: #9d9d9d;
+}
+
 
 .container_logo{
     display: flex;
