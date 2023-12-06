@@ -145,7 +145,7 @@ body {
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-    /* background-color: #0080ff; */
+    background-color: #0080ff;
     padding: 10px;
 }
 
@@ -175,6 +175,35 @@ body {
     font-weight: 500;
     font-size: 15px;
     margin-top: 3px;
+}
+
+.week_block {
+    display: inline-block;
+    width: 100px;
+    height: 140px;
+    background-color: white;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.week_text_block{
+    font-weight: 600;
+    font-size: 15px;
+    margin-bottom: 3px;
+}
+
+.week_icon_block{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 60px;
+}
+
+.week_temp_block{
+    font-weight: 500;
+    font-size: 15px;
 }
 
 
