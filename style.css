@@ -146,6 +146,7 @@ body {
     margin-right: auto;
     /* background-color: #0080ff; */
     padding: 10px;
+    cursor: pointer;
 }
 
 #day_content {
@@ -157,6 +158,13 @@ body {
 #week_content {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    gap: 0px 40px;
+    margin-top: 10px;
+}
+
+#day_info_content{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 0px 40px;
     margin-top: 10px;
 }
@@ -217,6 +225,38 @@ body {
 .week_temp_block{
     font-weight: 500;
     font-size: 16px;
+}
+
+.day_info_block{
+    display: inline-block;
+    width: 148px;
+    height: 140px;
+    background-color: white;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.day_info_text_block{
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 30px;
+}
+
+.day_info_value_block{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+
+.day_info_more_block{
+    margin-top: 30px;
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 
 
