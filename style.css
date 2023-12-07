@@ -105,6 +105,7 @@ body {
 #location_day{
     display: flex;
     align-items: center;
+    margin-top: 50px;
     font-size: 14px;
     margin-left: 30px;
 }
