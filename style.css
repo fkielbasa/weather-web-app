@@ -12,6 +12,7 @@
     --left_bar_background: #b4b4b4;
     --right_bar_backgraund: #d9d9d9;
     --textColor: rgb(255,255,255);
+    --background_img: url("./images/background_image.jpg");
 }
 /* styles for dark mode */
 .dark-mode{
@@ -26,6 +27,7 @@
     --left_bar_background: #1b1b1e;
     --right_bar_backgraund: #202124;
     --textColor: rgb(0,0,0);
+    --background_img: url("./images/background_image_dark.jpg");
 }
 body {
     display: flex;
@@ -33,7 +35,7 @@ body {
     align-items: center;
     height: 100vh;
     font-family: sans-serif;
-    background-image: url("./images/background_image.jpg");
+    background: var(--background_img) center;
     background-position: center;
 }
 
