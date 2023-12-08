@@ -12,6 +12,13 @@ function changeLanguage(lang) {
     const day6 = document.getElementById('day_6');
     const day7 = document.getElementById('day_7');
 
+    const infoUV = document.getElementById('info_UV');
+    const infoWind = document.getElementById('info_wind');
+    const infoSunset = document.getElementById('info_sunset');
+    const infoHumidity = document.getElementById('info_humidity');
+    const infoVisibility = document.getElementById('info_visibility');
+    const infoAir = document.getElementById('info_air');
+
 
     if (lang === 'pl') {
         langTogglePL.checked = true;
@@ -29,6 +36,12 @@ function changeLanguage(lang) {
         day5.textContent = 'Piątek';
         day6.textContent = 'Sobota';
         day7.textContent = 'Niedziela';
+        infoUV.textContent = 'Indeks UV';
+        infoWind.textContent = 'Prędkość Wiatru';
+        infoSunset.textContent = 'Wschód i Zachód';
+        infoHumidity.textContent = 'Wilgotność';
+        infoVisibility.textContent = 'Widoczność';
+        infoAir.textContent = 'Jakość Powietrza';
     } else if (lang === 'en') {
         langToggleEN.checked = true;
         langTogglePL.checked = false;
@@ -45,6 +58,12 @@ function changeLanguage(lang) {
         day5.textContent = 'Friday';
         day6.textContent = 'Saturday';
         day7.textContent = 'Sunday';
+        infoUV.textContent = 'UV Index';
+        infoWind.textContent = 'Wind Status';
+        infoSunset.textContent = 'Sunrise/Sunset';
+        infoHumidity.textContent = 'Humidity';
+        infoVisibility.textContent = 'Visibility';
+        infoAir.textContent = 'Air Quality';
     }
 }
 
