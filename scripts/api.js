@@ -1,3 +1,0 @@
-function searchCity(){
-    event.preventDefault();
-}
