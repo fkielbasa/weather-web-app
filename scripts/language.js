@@ -60,7 +60,8 @@ function changeLanguage(lang) {
         day7.textContent = 'Sunday';
         infoUV.textContent = 'UV Index';
         infoWind.textContent = 'Wind Status';
-        infoSunset.textContent = 'Sunrise/Sunset';
+
+        infoSunset.textContent = 'Sunrise & Sunset';
         infoHumidity.textContent = 'Humidity';
         infoVisibility.textContent = 'Visibility';
         infoAir.textContent = 'Air Quality';
@@ -74,10 +75,14 @@ function toggleLanguage(selectedCheckbox) {
             checkbox.checked = false;
         }
     }
-    if (selectedCheckbox.checked) {
-        const selectedLang = selectedCheckbox.value;
-        changeLanguage(selectedLang);
+
+    if (!selectedCheckbox.checked) {
+        selectedCheckbox.checked = true;
     }
+
+    const selectedLang = selectedCheckbox.value;
+    changeLanguage(selectedLang);
+
 }
 
 window.onload = function() {
