@@ -19,7 +19,6 @@ function changeLanguage(lang) {
     const infoAir = document.getElementById('info_air');
     const tempText = document.getElementById('temperatureText');
 
-
     if (lang === 'pl') {
         langTogglePL.checked = true;
         langToggleEN.checked = false;
@@ -83,40 +82,4 @@ function toggleLanguage(selectedCheckbox) {
 
     const selectedLang = selectedCheckbox.value;
     changeLanguage(selectedLang);
-}
-
-window.onload = function() {
-    const langTogglePL = document.querySelector('input[value="pl"]');
-    langTogglePL.checked = true;
-    changeLanguage('pl');
-    changeTemperature('C');
-};
-
-function changeTemperature(temp) {
-    const tempToggleC = document.getElementById('tempToggleC');
-    const tempToggleF = document.getElementById('tempToggleF');
-
-    if (temp === 'C') {
-        tempToggleC.checked = true;
-        tempToggleF.checked = false;
-    } else if (temp === 'F') {
-        tempToggleF.checked = true;
-        tempToggleC.checked = false;
-    }
-}
-
-function toggleTemperature(selectedCheckbox) {
-    const checkboxes = document.getElementsByName('tempToggle');
-    for (let checkbox of checkboxes) {
-        if (checkbox !== selectedCheckbox) {
-            checkbox.checked = false;
-        }
-    }
-
-    if (!selectedCheckbox.checked) {
-        selectedCheckbox.checked = true;
-    }
-
-    const selectedTemp = selectedCheckbox.value;
-    changeTemperature(selectedTemp);
 }

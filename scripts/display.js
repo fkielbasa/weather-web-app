@@ -7,7 +7,6 @@ const weekButton = document.getElementById('week_button');
 let show_info = false;
 let mode;
 
-
   function display_mode(selected_mode) {
     if (selected_mode === 'day') {
       mode = "day"
@@ -71,10 +70,3 @@ let mode;
       });
     }
   }
-  
-  
-  
-  
-
-  display_mode('day');
-  infoContent.style.display = 'none';
