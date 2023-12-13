@@ -1,6 +1,7 @@
 const settingsButton = document.querySelector('.container_settings');
 const modal = document.getElementById('modal');
 
+
 settingsButton.addEventListener('click', function() {
     modal.style.display = 'block';
 });
