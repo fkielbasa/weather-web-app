@@ -11,13 +11,13 @@ function changeLanguage(lang) {
     const day5 = document.getElementById('day_5');
     const day6 = document.getElementById('day_6');
     const day7 = document.getElementById('day_7');
-
     const infoUV = document.getElementById('info_UV');
     const infoWind = document.getElementById('info_wind');
     const infoSunset = document.getElementById('info_sunset');
     const infoHumidity = document.getElementById('info_humidity');
     const infoVisibility = document.getElementById('info_visibility');
     const infoAir = document.getElementById('info_air');
+    const tempText = document.getElementById('temperatureText');
 
 
     if (lang === 'pl') {
@@ -42,6 +42,7 @@ function changeLanguage(lang) {
         infoHumidity.textContent = 'Wilgotność';
         infoVisibility.textContent = 'Widoczność';
         infoAir.textContent = 'Jakość Powietrza';
+        tempText.textContent = "Temperatura";
     } else if (lang === 'en') {
         langToggleEN.checked = true;
         langTogglePL.checked = false;
@@ -64,6 +65,7 @@ function changeLanguage(lang) {
         infoHumidity.textContent = 'Humidity';
         infoVisibility.textContent = 'Visibility';
         infoAir.textContent = 'Air Quality';
+        tempText.textContent = "Temperature";
     }
 }
 
@@ -87,4 +89,34 @@ window.onload = function() {
     const langTogglePL = document.querySelector('input[value="pl"]');
     langTogglePL.checked = true;
     changeLanguage('pl');
+    changeTemperature('C');
 };
+
+function changeTemperature(temp) {
+    const tempToggleC = document.getElementById('tempToggleC');
+    const tempToggleF = document.getElementById('tempToggleF');
+
+    if (temp === 'C') {
+        tempToggleC.checked = true;
+        tempToggleF.checked = false;
+    } else if (temp === 'F') {
+        tempToggleF.checked = true;
+        tempToggleC.checked = false;
+    }
+}
+
+function toggleTemperature(selectedCheckbox) {
+    const checkboxes = document.getElementsByName('tempToggle');
+    for (let checkbox of checkboxes) {
+        if (checkbox !== selectedCheckbox) {
+            checkbox.checked = false;
+        }
+    }
+
+    if (!selectedCheckbox.checked) {
+        selectedCheckbox.checked = true;
+    }
+
+    const selectedTemp = selectedCheckbox.value;
+    changeTemperature(selectedTemp);
+}
