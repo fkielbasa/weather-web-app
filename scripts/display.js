@@ -9,8 +9,6 @@ let mode;
 
 
   function display_mode(selected_mode) {
-    
-
     if (selected_mode === 'day') {
       mode = "day"
       dayButton.style.color = '#aaccec';
@@ -28,6 +26,7 @@ let mode;
       dayContent.style.display = 'none';
       gridContent.style.gridTemplateColumns = 'repeat(4, 1fr)';
     }
+    show_info = false;
   }
 
   function show_today_info() {
@@ -37,25 +36,26 @@ let mode;
       dayContent.style.display = 'none';
       weekContent.style.display = 'none';
       gridContent.style.gridTemplateColumns = 'repeat(3, 1fr)';
-      
       Array.from(dayContent.getElementsByClassName('day_block')).forEach((block) => {
-        block.classList.add('flip-out');
+        block.classList.add('flip-in');
       });
       Array.from(weekContent.getElementsByClassName('week_block')).forEach((block) => {
-        block.classList.add('flip-out');
+        block.classList.add('flip-in');
       });
       Array.from(infoContent.getElementsByClassName('day_info_block')).forEach((block) => {
         block.classList.add('flip-in');
       });
+
     } else {
+
       show_info = false;
       infoContent.style.display = 'none';
-      if (mode == 'day') {
+      if (mode === 'day') {
         display_mode('day');
       } else {
         display_mode('week');
       }
-      
+  
       Array.from(dayContent.getElementsByClassName('day_block')).forEach((block) => {
         block.classList.add('flip-in');
       });
@@ -65,12 +65,13 @@ let mode;
       Array.from(infoContent.getElementsByClassName('day_info_block')).forEach((block) => {
         block.classList.add('flip-out');
         setTimeout(() => {
-          block.classList.remove('flip-out');
           block.classList.remove('flip-in');
+          block.classList.remove('flip-out');
         }, 500);
       });
     }
   }
+  
   
   
   

@@ -267,29 +267,29 @@ body {
 
 .flip-in {
     animation: flipIn 0.5s ease-in-out;
-  }
-  
-  .flip-out {
+}
+
+.flip-out {
     animation: flipOut 0.5s ease-in-out;
-  }
-  
-  @keyframes flipIn {
+}
+
+@keyframes flipIn {
     from {
-      transform: rotateY(180deg);
+        transform: rotateY(180deg);
     }
     to {
-      transform: rotateY(0deg);
+        transform: rotateY(0deg);
     }
-  }
-  
-  @keyframes flipOut {
+}
+
+@keyframes flipOut {
     from {
-      transform: rotateY(0deg);
+        transform: rotateY(0deg);
     }
     to {
-      transform: rotateY(180deg);
+        transform: rotateY(180deg);
     }
-  }
+}
   
 .container_logo{
     display: flex;
