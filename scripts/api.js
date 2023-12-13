@@ -1,0 +1,3 @@
+function searchCity(){
+    event.preventDefault();
+}
