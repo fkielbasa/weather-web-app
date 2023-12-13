@@ -413,18 +413,34 @@ body {
     align-items: center;
     padding: 5%;
     margin-top: 10%;
-    color: rgb(255, 255,255 );
+    color: rgb(255, 255, 255);
     background-color: var(--color2);
     height: 20%;
     border-radius: 10px;
+    box-sizing: border-box;
 }
+
+.left_section{
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.midle_section,
+.right_section {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
 .mode_text {
     margin-right: 10px;
     font-weight: bold;
-    font-size: 20px; 
+    font-size: 20px;
 }
+
 input[type="checkbox"] {
-    transform: scale(2); 
+    transform: scale(1.75);
+    margin-right: 10px;
 }
-
-
