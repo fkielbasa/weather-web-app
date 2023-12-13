@@ -265,7 +265,32 @@ body {
     margin-bottom: 10px;
 }
 
-
+.flip-in {
+    animation: flipIn 0.5s ease-in-out;
+  }
+  
+  .flip-out {
+    animation: flipOut 0.5s ease-in-out;
+  }
+  
+  @keyframes flipIn {
+    from {
+      transform: rotateY(180deg);
+    }
+    to {
+      transform: rotateY(0deg);
+    }
+  }
+  
+  @keyframes flipOut {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(180deg);
+    }
+  }
+  
 .container_logo{
     display: flex;
     align-items: center;
@@ -328,7 +353,7 @@ body {
     align-items: center;
     width: 80%;
     margin-top: auto;
-    height: 30px;
+    height: 40px;
     padding: 5px;
     background-color: var(--color6);
     border-radius: 20px;
