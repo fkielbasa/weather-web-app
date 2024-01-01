@@ -5,8 +5,11 @@ const gridContent = document.getElementById('weather_main_content');
 const dayButton = document.getElementById('day_button');
 const weekButton = document.getElementById('week_button');
 let show_info = false;
-let mode;
-
+let mode="week";
+console.log(mode);
+  function getMode(){
+    return mode;
+  }
 
   function display_mode(selected_mode) {
     if (selected_mode === 'day') {
@@ -72,9 +75,5 @@ let mode;
     }
   }
   
-  
-  
-  
-
   display_mode('day');
   infoContent.style.display = 'none';

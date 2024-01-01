@@ -139,23 +139,29 @@ body {
 }
 
 #weather_main_content {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 10px;
-    width: 65%;
-    height: 55%;
-    margin-top: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    /* background-color: #0080ff; */
-    padding: 10px;
-    cursor: pointer;
+    /* ... inne style ... */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #day_content {
+    /* ... inne style ... */
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.day_block {
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--block_background);
 }
 
 #week_content {
@@ -172,7 +178,7 @@ body {
     margin-top: 10px;
 }
 
-
+/* 
 .day_block {
     display: inline-block;
     width: 70px;
@@ -184,7 +190,7 @@ body {
     justify-content: center;
     align-items: center;
     background-color: var(--block_background);
-}
+} */
 
 .day_text_block{
     font-weight: 500;
