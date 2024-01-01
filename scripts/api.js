@@ -1,13 +1,6 @@
 const tempDiv = document.getElementById("info_temp")
 const locationText = document.getElementById("location_day")
 const mainIcon = document.getElementById("weather_day_icon")
-// uv_val = document.getElementById("uv_val")
-const wind_val = document.getElementById("wind_val")
-const surnrise_val = document.getElementById("surnrise_val")
-const sunset_val = document.getElementById("sunset_val")
-const humidity_val = document.getElementById("humidity_val")
-const visibility_val = document.getElementById("visibility_val")
-const air_val = document.getElementById("air_val")
 let unit = "°C"
 let currentCityData = ""
 
@@ -17,7 +10,7 @@ document.getElementById("search").addEventListener("submit", function(event) {
 
   let query = document.getElementById("query").value;
   getWeatherData(query,getMode());
-  
+  dayInfoContent.innerHTML=""
 });
 document.getElementById("week_button").addEventListener("click", function() {
   WeatherForDay(currentCityData,'f',getMode())
@@ -45,17 +38,23 @@ function getWeatherData(city,mode) {
       mainIcon.src=getIcon(data.currentConditions.icon)
       locationText.innerHTML = `<img id="location_day_icon" src="images/location.png">${data.resolvedAddress}`;
       WeatherForDay(data,'f', mode);
-      console.log(data.currentConditions.uvindex)
-      const detailsWeather = {
-        uv: currentCityData.currentConditions.uvindex,
-        windSpeed: currentCityData.currentConditions.windSpeed,
-        sunrise: currentCityData.currentConditions.sunrise,
-        sunset: currentCityData.currentConditions.sunset,
-        humidity: currentCityData.currentConditions.humidity,
-        visibility: currentCityData.currentConditions.visibility,
-        airQuality: currentCityData.currentConditions.airQuality
-      };
-      createWeatherTiles(detailsWeather);
+      const v1 = data.currentConditions.uvindex;
+      const v2 = data.currentConditions.windspeed;
+      const v3 = data.currentConditions.sunrise;
+      const v4 = data.currentConditions.sunset;
+      const v5 = data.currentConditions.humidity;
+      const v6 = data.currentConditions.visibility;
+      const v7 = data.currentConditions.winddir;
+
+      const detailsWeathers = [
+        { title: "Indeks UV", value: v1, status: measureUvIndex(v1) },
+        { title: "Prędkość wiatru", value: v2,status: "km/h" },
+        { title: "Wschód i Zachód", value: v3,status: v4 },
+        { title: "Widoczność", value: v5,status: updateHumidityStatus(v5) },
+        { title: "Widoczność", value: v6,status: updateVisibiltyStatus(v6) },
+        { title: "Jakość Powietrza", value: v7,status: updateAirQualityStatus(v7) },
+      ];
+      createWeatherTiles(detailsWeathers);
       }
     })
     .catch((error) => {
@@ -84,69 +83,31 @@ function getIcon(condition) {
 }
 const dayInfoContent = document.getElementById('day_info_content');
 
-// Tablica z danymi dla każdego kafelka
-// const weatherData = [
-//   { label: 'Indeks UV', value: currentCityData.currentConditions.uvindex, more: 'Wysoka' },
-//   { label: 'Prędkość Wiatru', value: '14', more: 'km/h' },
-//   { label: 'Wschód i Zachód', value: '06:00 am', more: '05:00 pm' },
-//   { label: 'Wilgotność', value: '45%', more: 'Umiarkowana' },
-//   { label: 'Widoczność', value: '6', more: 'Wysoka' },
-//   { label: 'Jakość Powietrza', value: '5', more: 'Dobra' }
-// ];
-
-// // Pętla tworząca kafelki dla danych pogodowych
-// weatherData.forEach((data, index) => {
-//   const div = document.createElement('div');
-//   div.classList.add('day_info_block');
-
-//   const labelSpan = document.createElement('span');
-//   labelSpan.classList.add('day_info_text_block');
-//   labelSpan.innerText = data.label;
-//   div.appendChild(labelSpan);
-
-//   const valueSpan = document.createElement('span');
-//   valueSpan.classList.add('day_info_value_block');
-//   valueSpan.id = `value_${index + 1}_val`; // Unikalne ID dla wartości
-//   valueSpan.innerText = data.value;
-//   div.appendChild(valueSpan);
-
-//   const moreSpan = document.createElement('span');
-//   moreSpan.classList.add('day_info_more_block');
-//   moreSpan.innerText = data.more;
-//   div.appendChild(moreSpan);
-
-//   dayInfoContent.appendChild(div);
-// });
-
-
-
-function createWeatherTiles(data) {
-  
+function createWeatherTiles(details) {
   const infoContent = document.getElementById('day_info_content');
 
-  for (const key in data) {
+  details.forEach(detail => {
     const block = document.createElement('div');
     block.classList.add('day_info_block');
 
     const textBlock = document.createElement('span');
     textBlock.classList.add('day_info_text_block');
-    textBlock.textContent = `info_${key}`;
+    textBlock.textContent = detail.title;
 
     const valueBlock = document.createElement('span');
     valueBlock.classList.add('day_info_value_block');
-    valueBlock.id = `${key}_val`;
-    valueBlock.textContent = data[key] || '';
+    valueBlock.textContent = detail.value;
 
     const moreBlock = document.createElement('span');
     moreBlock.classList.add('day_info_more_block');
-    moreBlock.textContent = 'Some more info'; 
+    moreBlock.textContent = detail.status;
 
     block.appendChild(textBlock);
     block.appendChild(valueBlock);
     block.appendChild(moreBlock);
 
     infoContent.appendChild(block);
-  }
+  });
 }
 
 const contentDay = document.getElementById("day_content")

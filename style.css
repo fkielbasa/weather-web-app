@@ -140,9 +140,9 @@ body {
 
 #weather_main_content {
     /* ... inne style ... */
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+    margin-left: auto;
+    margin-right: auto;
 }
 
 #day_content {
@@ -155,7 +155,7 @@ body {
 }
 
 .day_block {
-    padding: 20px;
+    padding: 10px;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
@@ -209,7 +209,8 @@ body {
 }
 
 .week_block {
-    display: inline-block;
+    padding: 10px;
+    margin-bottom: 10px;
     width: 100px;
     height: 140px;
     background-color: white;
@@ -239,15 +240,14 @@ body {
 }
 
 .day_info_block{
-    display: inline-block;
     width: 148px;
     height: 140px;
+    margin-bottom: 10%;
     background-color: white;
     border-radius: 12px;
     display: flex;
     flex-direction: column;
     background-color: var(--block_background);
-
 }
 
 .day_info_text_block{

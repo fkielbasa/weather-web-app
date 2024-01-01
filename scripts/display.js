@@ -55,6 +55,7 @@ console.log(mode);
       });
 
     } else {
+
       show_info = false;
       infoContent.style.display = 'none';
       if (mode === 'day') {
