@@ -38,7 +38,7 @@
                 <span class="mode_button" id="day_button" onclick="display_mode('day')">Dzisiaj</span>
                 <span class="mode_button" id="week_button" onclick="display_mode('week')">Tydzień</span>
             </div>
-            <div id="weather_main_content" onclick="show_today_info()">
+            <div id="weather_main_content" onclick="show_today_info()" id="details_info">
                 <!-- Day -->
                 <div id="day_content">
                 </div>
@@ -46,36 +46,36 @@
                 <div id="week_content">
                 </div>
                 <div id="day_info_content">
-                    <div class="day_info_block">
+                    <!-- <div class="day_info_block">
                         <span class="day_info_text_block" id="info_UV">Indeks UV</span>
-                        <span class="day_info_value_block">5</span>
+                        <span class="day_info_value_block" id="uv_val">5</span>
                         <span class="day_info_more_block">Wysoka</span>
                     </div>
                     <div class="day_info_block">
                         <span class="day_info_text_block" id="info_wind">Prędkość Wiatru</span>
-                        <span class="day_info_value_block">14</span>
+                        <span class="day_info_value_block" id="wind_val">14</span>
                         <span class="day_info_more_block">km/h</span>
                     </div>
                     <div class="day_info_block">
                         <span class="day_info_text_block" id="info_sunset">Wschód i Zachód</span>
-                        <span class="day_info_value_block">06:00 am</span>
-                        <span class="day_info_more_block">05:00 pm</span>
+                        <span class="day_info_value_block" id="sunrise_val">06:00 am</span>
+                        <span class="day_info_more_block" id="sunset_val">05:00 pm</span>
                     </div>
                     <div class="day_info_block">
                         <span class="day_info_text_block" id="info_humidity">Wilgotność</span>
-                        <span class="day_info_value_block">45%</span>
+                        <span class="day_info_value_block" id="humidity_val">45%</span>
                         <span class="day_info_more_block">Umiarkowana</span>
                     </div>
                     <div class="day_info_block">
                         <span class="day_info_text_block" id="info_visibility">Widoczność</span>
-                        <span class="day_info_value_block">6</span>
+                        <span class="day_info_value_block" id="visibility_val">6</span>
                         <span class="day_info_more_block">Wysoka</span>
                     </div>
                     <div class="day_info_block">
                         <span class="day_info_text_block" id="info_air">Jakość Powietrza</span>
-                        <span class="day_info_value_block">5</span>
+                        <span class="day_info_value_block" id="air_val">5</span>
                         <span class="day_info_more_block">Dobra</span>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

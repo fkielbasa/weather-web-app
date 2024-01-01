@@ -5,10 +5,14 @@ const gridContent = document.getElementById('weather_main_content');
 const dayButton = document.getElementById('day_button');
 const weekButton = document.getElementById('week_button');
 let show_info = false;
+let visibilityInfo = false;
 let mode="week";
 console.log(mode);
   function getMode(){
     return mode;
+  }
+  function getVisibileInfo(){
+    return show_info;
   }
 
   function display_mode(selected_mode) {
@@ -33,6 +37,7 @@ console.log(mode);
   }
 
   function show_today_info() {
+    console.log(show_info)
     if (!show_info) {
       show_info = true;
       infoContent.style.display = 'grid';
@@ -50,7 +55,6 @@ console.log(mode);
       });
 
     } else {
-
       show_info = false;
       infoContent.style.display = 'none';
       if (mode === 'day') {
