@@ -1,3 +1,14 @@
+// function toggleDarkMode() {
+//     const body = document.body;
+//     const image = document.getElementById('darkModeToggle');
+//     if (body.classList.contains('dark-mode')) {
+//         body.classList.remove('dark-mode');
+        
+//     } else {
+//         body.classList.add('dark-mode');
+        
+//     }
+// }
 function toggleDarkMode() {
     const body = document.body;
     const darkModeCheckbox = document.getElementById('darkModeToggle');
@@ -17,4 +28,3 @@ function toggleDarkMode() {
         }
     });
 }
-

@@ -23,7 +23,7 @@
     --color5: rgb(196, 208, 219);
     --color6: rgb(77, 79, 83);
     --search_field: #d1d1d2;
-    --block_background: #d2d3d3;
+    --block_background: #394040;
     --left_bar_background: #1b1b1e;
     --right_bar_backgraund: #202124;
     --textColor: rgb(0,0,0);
@@ -81,7 +81,7 @@ body {
 }
 
 #weather_day_icon{
-    display: flex;
+    display: none;
     width: 105px;
     height: 105px;
     margin-left: 15px;
@@ -113,6 +113,7 @@ body {
 }
 
 #location_day_icon{
+    display: none;
     width: 30px;
 }
 
@@ -139,43 +140,53 @@ body {
 }
 
 #weather_main_content {
-    /* ... inne style ... */
-
+    display: flex;
     margin-left: auto;
     margin-right: auto;
 }
 
 #day_content {
-    /* ... inne style ... */
+    overflow-y: scroll;
+    max-height: 45vh;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
+    grid-template-columns: repeat(6, 1fr); 
+    grid-template-rows: repeat(4, auto);
+    grid-gap: 1vw; 
+    margin-top: 2vh;
+    padding: 30px;
+}
+#day_content::-webkit-scrollbar {
+    /* display: none;  */
+    
 }
 
 .day_block {
-    padding: 10px;
-    border-radius: 12px;
     display: flex;
+    padding: 1vw; 
+    border-radius: 10px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
     background-color: var(--block_background);
 }
 
 #week_content {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
     gap: 0px 40px;
-    margin-top: 10px;
+    margin-top: 5%;
+    padding: 0 10% 0 10%;
 }
 
 #day_info_content{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0px 40px;
-    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 5%;
+    padding: 0 10% 0 10%;
+    gap: 5%;
 }
 
 /* 
@@ -194,23 +205,23 @@ body {
 
 .day_text_block{
     font-weight: 500;
-    font-size: 15px;
+    font-size: 100%;
     margin-bottom: 3px;
 }
 
 .day_icon_block{
-    width: 44px;
+    width: 100%;
 }
 
 .day_temp_block{
     font-weight: 500;
-    font-size: 15px;
-    margin-top: 3px;
+    font-size: 100%;
+    margin-top: 5px;
 }
 
 .week_block {
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     width: 100px;
     height: 140px;
     background-color: white;
@@ -219,7 +230,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--block_background);
+    background-color: white;
 }
 
 .week_text_block{
@@ -247,7 +258,7 @@ body {
     border-radius: 12px;
     display: flex;
     flex-direction: column;
-    background-color: var(--block_background);
+    background-color: white;
 }
 
 .day_info_text_block{

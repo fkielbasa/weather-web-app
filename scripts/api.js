@@ -1,6 +1,7 @@
 const tempDiv = document.getElementById("info_temp")
 const locationText = document.getElementById("location_day")
 const mainIcon = document.getElementById("weather_day_icon")
+const locationIcon = document.getElementById("location_day_icon")
 let unit = "°C"
 let currentCityData = ""
 
@@ -19,7 +20,6 @@ document.getElementById("week_button").addEventListener("click", function() {
 document.getElementById("day_button").addEventListener("click", function() {
   WeatherForDay(currentCityData,'f',getMode())
 });
-
 function getWeatherData(city,mode) {
   const apiKey = "EJ6UBL2JEQGYB3AA4ENASN62J";
   const apiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=metric&key=${apiKey}&contentType=json`;
@@ -36,6 +36,8 @@ function getWeatherData(city,mode) {
       currentCityData = data;
       tempDiv.innerText = data.currentConditions.temp + unit;
       mainIcon.src=getIcon(data.currentConditions.icon)
+      mainIcon.style.display = "inline";
+      locationIcon.style.display = "inline";
       locationText.innerHTML = `<img id="location_day_icon" src="images/location.png">${data.resolvedAddress}`;
       WeatherForDay(data,'f', mode);
       const v1 = data.currentConditions.uvindex;
@@ -66,19 +68,23 @@ function getWeatherData(city,mode) {
 
 function getIcon(condition) {
   if (condition === "partly-cloudy-day") {
-    return "https://i.ibb.co/PZQXH8V/27.png";
+    return "https://i.ibb.co/C1fngN5/cloudy.gif";
   } else if (condition === "partly-cloudy-night") {
-    return "https://i.ibb.co/Kzkk59k/15.png";
+    return "https://i.ibb.co/WH9svMy/partly-cloudy-day.gif";
   } else if (condition === "rain") {
-    return "https://i.ibb.co/kBd2NTS/39.png";
+    return "https://i.ibb.co/16hZS7p/rain.gif";
   } else if (condition === "clear-day") {
-    return "https://i.ibb.co/rb4rrJL/26.png";
+    return "https://i.ibb.co/XsQQfzV/sunny.gif";
   } else if (condition === "clear-night") {
-    return "https://i.ibb.co/1nxNGHL/10.png";
+    return "https://i.ibb.co/Qfy2bnF/partly-cloudy-night.gif";
   } else if (condition === "cloudy"){
-    return "https://i.ibb.co/kBd2NTS/39.png";
+    return "https://i.ibb.co/Z8wtZpY/cloudy.gif";
+  } else if (condition === "snow"){
+    return "https://i.ibb.co/CtPbGjm/snow.gif";
+  } else if (condition === "wind"){
+    return "https://i.ibb.co/HNXKgMn/oie-4115647z-FRRj-OON.gif";
   } else {
-    return "https://i.ibb.co/rb4rrJL/26.png";
+    return "https://i.ibb.co/QctWrfc/clouds.gif";
   }
 }
 const dayInfoContent = document.getElementById('day_info_content');

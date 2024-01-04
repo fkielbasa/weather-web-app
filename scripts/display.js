@@ -29,9 +29,8 @@ console.log(mode);
       weekButton.style.color = '#aaccec';
       dayButton.style.color = '#898989';
       infoContent.style.display = 'none';
-      weekContent.style.display = 'grid';
+      weekContent.style.display = 'flex';
       dayContent.style.display = 'none';
-      gridContent.style.gridTemplateColumns = 'repeat(4, 1fr)';
     }
     show_info = false;
   }
@@ -40,7 +39,7 @@ console.log(mode);
     console.log(show_info)
     if (!show_info) {
       show_info = true;
-      infoContent.style.display = 'grid';
+      infoContent.style.display = 'flex';
       dayContent.style.display = 'none';
       weekContent.style.display = 'none';
       gridContent.style.gridTemplateColumns = 'repeat(3, 1fr)';
