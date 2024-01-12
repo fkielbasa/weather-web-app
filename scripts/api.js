@@ -2,14 +2,15 @@ const tempDiv = document.getElementById("info_temp")
 const locationText = document.getElementById("location_day")
 const mainIcon = document.getElementById("weather_day_icon")
 const locationIcon = document.getElementById("location_day_icon")
+const container = document.getElementById("container_lasts")
+
 let unit = "°C"
 let currentCityData = ""
 document.body.style.overflow = 'hidden'
 
-
+window.addEventListener('load', generateLastCities);
 document.getElementById("search").addEventListener("submit", function(event) {
   event.preventDefault(); 
-
   let query = document.getElementById("query").value;
   getWeatherData(query,getMode());
   dayInfoContent.innerHTML=""
@@ -33,7 +34,7 @@ function getWeatherData(city,mode) {
     })
     .then((data) => {
       if(data){
-     
+      saveCity(city);
       currentCityData = data;
       tempDiv.innerText = data.currentConditions.temp + unit;
       mainIcon.src=getIcon(data.currentConditions.icon)
@@ -57,6 +58,7 @@ function getWeatherData(city,mode) {
         { title: "Widoczność", value: v6,status: updateVisibiltyStatus(v6) },
         { title: "Jakość Powietrza", value: v7,status: updateAirQualityStatus(v7) },
       ];
+
       createWeatherTiles(detailsWeathers);
       }
     })
@@ -160,6 +162,14 @@ function WeatherForDay(data, unit, type){
           contentWeek.appendChild(card);
       }
   }
+}
+function generateLastCities(){
+  const lastCities = getCities();
+  lastCities.forEach(city => {
+    const button = document.createElement('button');
+    button.textContent = city;
+    container.appendChild(button);
+  });
 }
 
 function getHour(time) {
