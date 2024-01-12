@@ -7,7 +7,7 @@ const container = document.getElementById("container_lasts")
 let unit = "°C"
 let currentCityData = ""
 
-window.addEventListener('load', generateLastCities,getWeatherData(getLastAddedCity(),getMode()));
+window.addEventListener('load', loadDefaultData());
 
 document.getElementById("search").addEventListener("submit", function(event) {
   event.preventDefault(); 
@@ -17,11 +17,20 @@ document.getElementById("search").addEventListener("submit", function(event) {
 });
 document.getElementById("week_button").addEventListener("click", function() {
   WeatherForDay(currentCityData,'f',getMode())
-
 });
 document.getElementById("day_button").addEventListener("click", function() {
   WeatherForDay(currentCityData,'f',getMode())
 });
+function loadDefaultData(){
+  if(areCitiesStored()) {
+    console.log("jest")
+    generateLastCities();
+    getWeatherData(getLastAddedCity(),getMode());
+  }
+  else {
+    getWeatherData("Tarnów",getMode());
+  }
+}
 function getWeatherData(city,mode) {
   const apiKey = "EJ6UBL2JEQGYB3AA4ENASN62J";
   const apiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=metric&key=${apiKey}&contentType=json`;
@@ -58,7 +67,6 @@ function getWeatherData(city,mode) {
         { title: "Widoczność", value: v6,status: updateVisibiltyStatus(v6) },
         { title: "Jakość Powietrza", value: v7,status: updateAirQualityStatus(v7) },
       ];
-
       createWeatherTiles(detailsWeathers);
       }
     })
@@ -169,7 +177,7 @@ function generateLastCities(){
     button.textContent = city;
     button.addEventListener('click', function() {
       getWeatherData(city, getMode());
-      infoContent.innerHTML=""
+      infoContent.innerHTML="";
     });
     container.appendChild(button);
   });
