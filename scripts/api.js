@@ -4,6 +4,7 @@ const mainIcon = document.getElementById("weather_day_icon")
 const locationIcon = document.getElementById("location_day_icon")
 let unit = "°C"
 let currentCityData = ""
+document.body.style.overflow = 'hidden'
 
 
 document.getElementById("search").addEventListener("submit", function(event) {

@@ -156,28 +156,18 @@ body {
     padding: 30px;
 }
 #day_content::-webkit-scrollbar {
-    /* display: none;  */
-    
+    /* display: none;  */ 
 }
 
 .day_block {
     display: flex;
-    padding: 1vw; 
+    padding: 0.9vw; 
     border-radius: 10px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
     background-color: var(--block_background);
-}
-
-#week_content {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 0px 40px;
-    margin-top: 5%;
-    padding: 0 10% 0 10%;
 }
 
 #day_info_content{
@@ -189,41 +179,33 @@ body {
     gap: 5%;
 }
 
-/* 
-.day_block {
-    display: inline-block;
-    width: 70px;
-    height: 93px;
-    background-color: white;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--block_background);
-} */
-
 .day_text_block{
-    font-weight: 500;
-    font-size: 100%;
-    margin-bottom: 3px;
+    font-weight: 600;
+    font-size: 0.9vw;
+    margin-bottom: 0.5vw; 
 }
 
 .day_icon_block{
-    width: 100%;
+    margin-bottom: 1vw;
+    width: 4vw; 
 }
 
 .day_temp_block{
     font-weight: 500;
-    font-size: 100%;
-    margin-top: 5px;
+    font-size: 1vw; 
+}
+#week_content {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0px 40px;
+    margin-top: 5%;
+    padding: 0 10% 0 10%;
 }
 
 .week_block {
     padding: 10px;
     margin-bottom: 30px;
-    width: 100px;
-    height: 140px;
     background-color: white;
     border-radius: 12px;
     display: flex;
@@ -231,23 +213,23 @@ body {
     justify-content: center;
     align-items: center;
     background-color: white;
+    width: 5vw;
 }
 
-.week_text_block{
+.week_text_block {
     font-weight: 600;
-    font-size: 15px;
-    margin-bottom: 3px;
+    font-size: 1vw;
+    margin-bottom: 0.5vw; 
 }
 
-.week_icon_block{
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 60px;
+.week_icon_block {
+    margin-bottom: 1vw;
+    width: 4vw; 
 }
 
-.week_temp_block{
+.week_temp_block {
     font-weight: 500;
-    font-size: 16px;
+    font-size: 1vw; 
 }
 
 .day_info_block{
