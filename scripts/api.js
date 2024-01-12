@@ -6,14 +6,13 @@ const container = document.getElementById("container_lasts")
 
 let unit = "°C"
 let currentCityData = ""
-document.body.style.overflow = 'hidden'
 
-window.addEventListener('load', generateLastCities);
+window.addEventListener('load', generateLastCities,getWeatherData(getLastAddedCity(),getMode()));
 document.getElementById("search").addEventListener("submit", function(event) {
   event.preventDefault(); 
   let query = document.getElementById("query").value;
   getWeatherData(query,getMode());
-  dayInfoContent.innerHTML=""
+  
 });
 document.getElementById("week_button").addEventListener("click", function() {
   WeatherForDay(currentCityData,'f',getMode())
@@ -165,6 +164,7 @@ function WeatherForDay(data, unit, type){
 }
 function generateLastCities(){
   const lastCities = getCities();
+  console.log(getLastAddedCity())
   lastCities.forEach(city => {
     const button = document.createElement('button');
     button.textContent = city;
