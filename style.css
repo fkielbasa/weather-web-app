@@ -37,6 +37,7 @@ body {
     font-family: sans-serif;
     background: var(--background_img) center;
     background-position: center;
+    overflow: hidden;
 }
 
 .container{
@@ -155,10 +156,6 @@ body {
     margin-top: 2vh;
     padding: 20px;
 }
-#day_content::-webkit-scrollbar {
-    /* display: none;  */ 
-}
-
 .day_block {
     display: flex;
     padding: 0.9vw; 

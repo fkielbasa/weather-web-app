@@ -8,11 +8,12 @@ let unit = "°C"
 let currentCityData = ""
 
 window.addEventListener('load', generateLastCities,getWeatherData(getLastAddedCity(),getMode()));
+
 document.getElementById("search").addEventListener("submit", function(event) {
   event.preventDefault(); 
   let query = document.getElementById("query").value;
   getWeatherData(query,getMode());
-  
+  infoContent.innerHTML=""
 });
 document.getElementById("week_button").addEventListener("click", function() {
   WeatherForDay(currentCityData,'f',getMode())
@@ -89,7 +90,6 @@ function getIcon(condition) {
     return "https://i.ibb.co/QctWrfc/clouds.gif";
   }
 }
-const dayInfoContent = document.getElementById('day_info_content');
 
 function createWeatherTiles(details) {
   const infoContent = document.getElementById('day_info_content');
@@ -164,10 +164,13 @@ function WeatherForDay(data, unit, type){
 }
 function generateLastCities(){
   const lastCities = getCities();
-  console.log(getLastAddedCity())
   lastCities.forEach(city => {
     const button = document.createElement('button');
     button.textContent = city;
+    button.addEventListener('click', function() {
+      getWeatherData(city, getMode());
+      infoContent.innerHTML=""
+    });
     container.appendChild(button);
   });
 }
