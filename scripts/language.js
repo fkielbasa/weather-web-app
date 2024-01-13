@@ -60,7 +60,6 @@ function changeLanguage(lang) {
         day7.textContent = 'Sunday';
         infoUV.textContent = 'UV Index';
         infoWind.textContent = 'Wind Status';
-
         infoSunset.textContent = 'Sunrise & Sunset';
         infoHumidity.textContent = 'Humidity';
         infoVisibility.textContent = 'Visibility';

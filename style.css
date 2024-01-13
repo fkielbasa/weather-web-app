@@ -204,13 +204,12 @@ body {
 .week_block {
     padding: 10px;
     margin-bottom: 30px;
-    background-color: white;
+    background-color: var(--block_background);
     border-radius: 12px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: white;
     width: 5vw;
 }
 
@@ -234,11 +233,10 @@ body {
     width: 148px;
     height: 140px;
     margin-bottom: 10%;
-    background-color: white;
+    background-color: var(--block_background);
     border-radius: 12px;
     display: flex;
     flex-direction: column;
-    background-color: white;
 }
 
 .day_info_text_block{
