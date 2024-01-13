@@ -15,6 +15,7 @@ console.log(mode);
     return show_info;
   }
 
+
   function display_mode(selected_mode) {
     if (selected_mode === 'day') {
       mode = "day"
@@ -77,6 +78,7 @@ console.log(mode);
         }, 500);
       });
     }
+
   }
   
   display_mode('day');

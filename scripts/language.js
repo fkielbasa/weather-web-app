@@ -11,14 +11,13 @@ function changeLanguage(lang) {
     const day5 = document.getElementById('day_5');
     const day6 = document.getElementById('day_6');
     const day7 = document.getElementById('day_7');
-
     const infoUV = document.getElementById('info_UV');
     const infoWind = document.getElementById('info_wind');
     const infoSunset = document.getElementById('info_sunset');
     const infoHumidity = document.getElementById('info_humidity');
     const infoVisibility = document.getElementById('info_visibility');
     const infoAir = document.getElementById('info_air');
-
+    const tempText = document.getElementById('temperatureText');
 
     if (lang === 'pl') {
         langTogglePL.checked = true;
@@ -42,6 +41,7 @@ function changeLanguage(lang) {
         infoHumidity.textContent = 'Wilgotność';
         infoVisibility.textContent = 'Widoczność';
         infoAir.textContent = 'Jakość Powietrza';
+        tempText.textContent = "Temperatura";
     } else if (lang === 'en') {
         langToggleEN.checked = true;
         langTogglePL.checked = false;
@@ -65,6 +65,7 @@ function changeLanguage(lang) {
         infoHumidity.textContent = 'Humidity';
         infoVisibility.textContent = 'Visibility';
         infoAir.textContent = 'Air Quality';
+        tempText.textContent = "Temperature";
     }
 }
 
@@ -82,7 +83,6 @@ function toggleLanguage(selectedCheckbox) {
 
     const selectedLang = selectedCheckbox.value;
     changeLanguage(selectedLang);
-
 }
 
 window.onload = function() {
@@ -90,3 +90,4 @@ window.onload = function() {
     langTogglePL.checked = true;
     changeLanguage('pl');
 };
+

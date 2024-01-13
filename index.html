@@ -56,21 +56,51 @@
                 <div class="modal-content">
                     <span class="close">&times;</span>
                     <div class="mode-container">
-                        <span class="mode_text" id="darkModeText">Tryb ciemny</span>
-                        <label class="switch">
-                            <input type="checkbox" id="darkModeToggle" onclick="toggleDarkMode()">
-                        </label>
+                        <div class="left_section">
+                            <span class="mode_text" id="darkModeText">Tryb ciemny</span>
+                        </div>
+                        <div class="midle_section">
+                            
+                        </div>
+                        <div class="right_section">
+                            <label class="switch">
+                                <input type="checkbox" id="darkModeToggle" onclick="toggleDarkMode()">
+                            </label>
+                        </div>
                     </div>
                     <div class="mode-container">
-                        <span class="mode_text" id="languageText">Język:</span>
-                        <label class="switch">
-                            <input type="checkbox" id="langTogglePL" value="pl" onclick="toggleLanguage(this)">
-                        </label>
-                        <span class="mode_text">PL</span>
-                        <label class="switch">
-                            <input type="checkbox" id="langToggleEN" value="en" onclick="toggleLanguage(this)">
-                        </label>
-                        <span class="mode_text">ENG</span>
+                        <div class="left_section">
+                            <span class="mode_text" id="languageText">Język:</span>
+                        </div>
+                        <div class="midle_section">
+                            <label class="switch">
+                                <input type="checkbox" id="langTogglePL" value="pl" onclick="toggleLanguage(this)">
+                            </label>
+                            <span class="mode_text">PL</span>
+                        </div>
+                        <div class="right_section">
+                            <label class="switch">
+                                <input type="checkbox" id="langToggleEN" value="en" onclick="toggleLanguage(this)">
+                            </label>
+                            <span class="mode_text">ENG</span>
+                        </div>
+                    </div>
+                    <div class="mode-container">
+                        <div class="left_section">
+                            <span class="mode_text" id="temperatureText">Temperatura:</span>
+                        </div>
+                        <div class="midle_section">
+                            <label class="switch">
+                                <input type="checkbox" id="tempToggleC" value="C" onclick="toggleTemperature(this)">
+                            </label>
+                            <span class="mode_text">°C</span>
+                        </div>
+                        <div class="midle_section">
+                            <label class="switch">
+                                <input type="checkbox" id="tempToggleF" value="F" onclick="toggleTemperature(this)">
+                            </label>
+                            <span class="mode_text">°F</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -79,9 +109,11 @@
     <script src="./scripts/storage.js"></script>
     <script src="./scripts/darkMode.js"></script>
     <script src="./scripts/language.js"></script>
+    <script src="./scripts/temperature.js"></script>
     <script src="./scripts/display.js"></script>
     <script src="./scripts/api.js"></script>
     <script src="./scripts/time.js"></script>
     <script src="./scripts/values.js"></script>
+    <script src="./scripts/startup.js"></script>
 </body>
 </html>
