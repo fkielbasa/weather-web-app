@@ -4,9 +4,19 @@ const mainIcon = document.getElementById("weather_day_icon")
 const locationIcon = document.getElementById("location_day_icon")
 const container = document.getElementById("container_lasts")
 
-let unit = "°C"
-let currentCityData = ""
+let currentUnit = 'C'
+let currentCityData = ''
 
+function setCurrentUnit(newUnit) {
+  if (newUnit !== currentUnit) {
+      currentUnit = newUnit;
+      handleUnitChange();
+  }
+}
+
+function handleUnitChange() {
+  WeatherForDay(currentCityData,currentUnit,getMode())
+}
 window.addEventListener('load', loadDefaultData());
 
 document.getElementById("search").addEventListener("submit", function(event) {
@@ -16,14 +26,13 @@ document.getElementById("search").addEventListener("submit", function(event) {
   infoContent.innerHTML=""
 });
 document.getElementById("week_button").addEventListener("click", function() {
-  WeatherForDay(currentCityData,'f',getMode())
+  WeatherForDay(currentCityData,currentUnit,getMode())
 });
 document.getElementById("day_button").addEventListener("click", function() {
-  WeatherForDay(currentCityData,'f',getMode())
+  WeatherForDay(currentCityData,currentUnit,getMode())
 });
 function loadDefaultData(){
   if(areCitiesStored()) {
-    console.log("jest")
     generateLastCities();
     getWeatherData(getLastAddedCity(),getMode());
   }
@@ -45,12 +54,11 @@ function getWeatherData(city,mode) {
       if(data){
       saveCity(city);
       currentCityData = data;
-      tempDiv.innerText = data.currentConditions.temp + unit;
       mainIcon.src=getIcon(data.currentConditions.icon)
       mainIcon.style.display = "inline";
       locationIcon.style.display = "inline";
       locationText.innerHTML = `<img id="location_day_icon" src="images/location.png">${data.resolvedAddress}`;
-      WeatherForDay(data,'f', mode);
+      WeatherForDay(data,currentUnit, mode);
       const v1 = data.currentConditions.uvindex;
       const v2 = data.currentConditions.windspeed;
       const v3 = data.currentConditions.sunrise;
@@ -130,6 +138,7 @@ const contentDay = document.getElementById("day_content")
 const contentWeek = document.getElementById("week_content")
 
 function WeatherForDay(data, unit, type){
+  tempDiv.innerText = currentUnit === 'F' ? celciusToFahrenheit(data.currentConditions.temp) + "°F" : data.currentConditions.temp + "°C";
   contentDay.innerHTML = "";
   contentWeek.innerHTML = "";
   let numCards = (type === "day") ? 24 : 7;
@@ -147,6 +156,9 @@ function WeatherForDay(data, unit, type){
           dayTemp = data.days[i].temp;
           iconCondition = data.days[i].icon;
       }
+      if(unit === 'F'){
+        dayTemp = celciusToFahrenheit(dayTemp);
+      }
       iconSrc = getIcon(iconCondition);
 
       if (type === 'day') {
@@ -154,7 +166,7 @@ function WeatherForDay(data, unit, type){
               <div class="day_block">
                   <span class="day_text_block">${dayName}</span>
                   <img class="day_icon_block" src="${iconSrc}">
-                  <span class="day_temp_block">${dayTemp + "°C"}</span>
+                  <span class="day_temp_block">${dayTemp}°${unit.toUpperCase()}</span>
               </div>
           `;
           contentDay.appendChild(card);
@@ -163,7 +175,7 @@ function WeatherForDay(data, unit, type){
               <div class="week_block">
                   <span class="week_text_block">${dayName}</span>
                   <img class="week_icon_block" src="${iconSrc}">
-                  <span class="week_temp_block">${dayTemp + "°C"}</span>
+                  <span class="week_temp_block">${dayTemp}°${unit.toUpperCase()}</span>
               </div>
           `;
           contentWeek.appendChild(card);

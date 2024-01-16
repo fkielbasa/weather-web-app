@@ -21,7 +21,8 @@ function toggleTemperature(selectedCheckbox) {
 
     if (!selectedCheckbox.checked) selectedCheckbox.checked = true;
     
-
     const selectedTemp = selectedCheckbox.value;
     changeTemperature(selectedTemp);
+    setCurrentUnit(selectedTemp);
+    console.log(currentUnit)
 }
