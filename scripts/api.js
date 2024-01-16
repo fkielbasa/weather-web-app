@@ -5,15 +5,15 @@ const locationIcon = document.getElementById("location_day_icon")
 const container = document.getElementById("container_lasts")
 
 let currentUnit = 'C'
+let currentLang = 'pl'
 let currentCityData = ''
 
-function setCurrentUnit(newUnit) {
-  if (newUnit !== currentUnit) {
-      currentUnit = newUnit;
-      handleUnitChange();
-  }
-}
 
+
+function handleLangChange(){
+  console.log("Teraz")
+  WeatherForDay(currentCityData,currentUnit,getMode())
+}
 function handleUnitChange() {
   WeatherForDay(currentCityData,currentUnit,getMode())
 }
@@ -23,7 +23,7 @@ document.getElementById("search").addEventListener("submit", function(event) {
   event.preventDefault(); 
   let query = document.getElementById("query").value;
   getWeatherData(query,getMode());
-  infoContent.innerHTML=""
+  infoContent.innerHTML = ""
 });
 document.getElementById("week_button").addEventListener("click", function() {
   WeatherForDay(currentCityData,currentUnit,getMode())
@@ -153,13 +153,13 @@ function WeatherForDay(data, unit, type){
           dayTemp = data.days[0].hours[i].temp;
           iconCondition = data.days[0].hours[i].icon;
       } else {
-          dayName = getDayName(data.days[i].datetime);
+          const dateObject = new Date(data.days[i].datetime);
+          dayName = getDayName(dateObject,currentLang);
           dayTemp = data.days[i].temp;
           iconCondition = data.days[i].icon;
       }
-      if(unit === 'F'){
+      if(unit === 'F')
         dayTemp = celciusToFahrenheit(dayTemp);
-      }
       iconSrc = getIcon(iconCondition);
 
       if (type === 'day') {
@@ -167,7 +167,7 @@ function WeatherForDay(data, unit, type){
               <div class="day_block">
                   <span class="day_text_block">${dayName}</span>
                   <img class="day_icon_block" src="${iconSrc}">
-                  <span class="day_temp_block">${dayTemp}°${unit.toUpperCase()}</span>
+                  <span class="day_temp_block">${dayTemp}°${unit}</span>
               </div>
           `;
           contentDay.appendChild(card);
@@ -176,7 +176,7 @@ function WeatherForDay(data, unit, type){
               <div class="week_block">
                   <span class="week_text_block">${dayName}</span>
                   <img class="week_icon_block" src="${iconSrc}">
-                  <span class="week_temp_block">${dayTemp}°${unit.toUpperCase()}</span>
+                  <span class="week_temp_block">${dayTemp}°${unit}</span>
               </div>
           `;
           contentWeek.appendChild(card);
@@ -206,19 +206,31 @@ function getHour(time) {
     return `${hour}:${min} AM`;
   }
 }
-function getDayName(date) {
-  let day = new Date(date);
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  return days[day.getDay()];
-}
+// function getDayName(date, lang) {
+//   let day = new Date(date);
+//   let days = {
+//     pl: [
+//       "Niedziela",
+//       "Poniedziałek",
+//       "Wtorek",
+//       "Środa",
+//       "Czwartek",
+//       "Piątek",
+//       "Sobota",
+//     ],
+//     en: [
+//       "Sunday",
+//       "Monday",
+//       "Tuesday",
+//       "Wednesday",
+//       "Thursday",
+//       "Friday",
+//       "Saturday",
+//     ],
+//   };
+//   return days[lang][day.getDay()];
+// }
+
 function celciusToFahrenheit(temp) {
   return ((temp * 9) / 5 + 32).toFixed(1);
 }
