@@ -52,6 +52,7 @@ function getWeatherData(city,mode) {
     })
     .then((data) => {
       if(data){
+        console.log
       saveCity(city);
       currentCityData = data;
       mainIcon.src=getIcon(data.currentConditions.icon)
@@ -87,15 +88,15 @@ function getWeatherData(city,mode) {
 
 function getIcon(condition) {
   if (condition === "partly-cloudy-day") {
-    return "https://i.ibb.co/C1fngN5/cloudy.gif";
+    return "https://i.ibb.co/jT43PRH/partly-cloudy-night-2.gif";
   } else if (condition === "partly-cloudy-night") {
-    return "https://i.ibb.co/WH9svMy/partly-cloudy-day.gif";
+    return "https://i.ibb.co/XX4cRX9/partly-cloudy-night.gif";
   } else if (condition === "rain") {
     return "https://i.ibb.co/16hZS7p/rain.gif";
   } else if (condition === "clear-day") {
     return "https://i.ibb.co/XsQQfzV/sunny.gif";
   } else if (condition === "clear-night") {
-    return "https://i.ibb.co/Qfy2bnF/partly-cloudy-night.gif";
+    return "https://i.ibb.co/mG0DCNw/night-2.gif";
   } else if (condition === "cloudy"){
     return "https://i.ibb.co/Z8wtZpY/cloudy.gif";
   } else if (condition === "snow"){

@@ -12,7 +12,7 @@
     --block_background: #ffffff;
     --left_bar_background: #b4b4b4;
     --right_bar_backgraund: #d9d9d9;
-    --textColor: rgb(255,255,255);
+    --textColor: rgb(0,0,0);
     --background_img: url("./images/background_image.jpg");
 }
 /* styles for dark mode */
@@ -28,7 +28,7 @@
     --block_background: #394040;
     --left_bar_background: #1b1b1e;
     --right_bar_backgraund: #202124;
-    --textColor: rgb(0,0,0);
+    --textColor: rgb(255,255,255);
     --background_img: url("./images/background_image_dark.jpg");
 }
 body {
@@ -40,6 +40,7 @@ body {
     background: var(--background_img) center;
     background-position: center;
     overflow: hidden;
+    color: var(--textColor);
 }
 
 .container{
