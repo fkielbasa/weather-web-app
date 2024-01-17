@@ -26,3 +26,7 @@ function getLastAddedCity() {
     const storedCities = getCities();
     return storedCities.length > 0;
   }
+
+  function clearCity(){
+    localStorage.clear();
+  }

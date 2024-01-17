@@ -444,7 +444,7 @@ input[type="checkbox"] {
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin-top: 20%;
+    margin-top: 8%;
     width: 60%;
 }
 #container_lasts span{
@@ -470,3 +470,12 @@ input[type="checkbox"] {
     border-radius: 10px;
     border: 3px solid #ffffff;
   }
+
+  #iconClear {
+    width: 22px;
+    height: 22px;
+  } 
+  
+  #clearBtn {
+    height: 40px;
+  } 
