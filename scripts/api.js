@@ -8,6 +8,8 @@ let currentUnit = 'C'
 let currentLang = 'pl'
 let currentCityData = ''
 
+
+
 function handleLangChange(){
   console.log("Teraz")
   WeatherForDay(currentCityData,currentUnit,getMode())
@@ -57,9 +59,6 @@ function getWeatherData(city,mode) {
       mainIcon.style.display = "inline";
       locationIcon.style.display = "inline";
       locationText.innerHTML = `<img id="location_day_icon" src="images/location.png">${data.resolvedAddress}`;
-
-      generateLastCities();
-
       WeatherForDay(data,currentUnit, mode);
       const v1 = data.currentConditions.uvindex;
       const v2 = data.currentConditions.windspeed;
@@ -184,27 +183,14 @@ function WeatherForDay(data, unit, type){
       }
   }
 }
-function generateLastCities() {
+function generateLastCities(){
   const lastCities = getCities();
-  const container = document.getElementById("container_lasts");
-  container.innerHTML = "";
-
-  // Dodaj przycisk "clear"
-  const clearButton = document.createElement('button');
-  clearButton.id = "clearBtn";
-  clearButton.onclick = clearCity;
-  const clearIcon = document.createElement('img');
-  clearIcon.id = "iconClear";
-  clearIcon.src = "./images/icons8-clear-50.png";
-  clearButton.appendChild(clearIcon);
-  container.appendChild(clearButton);
-
   lastCities.forEach(city => {
     const button = document.createElement('button');
     button.textContent = city;
-    button.addEventListener('click', function () {
+    button.addEventListener('click', function() {
       getWeatherData(city, getMode());
-      infoContent.innerHTML = "";
+      infoContent.innerHTML="";
     });
     container.appendChild(button);
   });
