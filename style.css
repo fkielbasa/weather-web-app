@@ -479,3 +479,14 @@ input[type="checkbox"] {
   #clearBtn {
     height: 40px;
   } 
+
+  #container_lasts_button{
+    margin-bottom: 10%;
+    padding: 10px;
+    font-size: 0.8vw;
+    border: none;
+    color: white;
+    background-color: var(--color6);
+    cursor: pointer;
+    border-radius: 20px;
+}
