@@ -29,5 +29,4 @@ function getLastAddedCity() {
 
   function clearCity(){
     localStorage.clear();
-    location.reload();
   }
