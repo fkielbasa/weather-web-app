@@ -9,6 +9,14 @@ function getDayName(date, lang) {
   return days[lang][day.getDay()];
 }
 
+function getInfo(nr, lang) {
+  let info = {
+    pl: ["Indeks UV", "Prędkość wiatru", "Wschód / Zachód", "Wilgotność", "Widoczność", "Jakość Powietrza"],
+    en: ["Index UV", "Wind speed", "Sunrise / Sunset", "Humidity", "Visibility", "Air Quality"],
+  };
+  return info[lang][nr];
+}
+
 function getDateTime() {
   let now = new Date(),
     hour = now.getHours(),
