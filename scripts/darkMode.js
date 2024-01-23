@@ -9,6 +9,8 @@
         
 //     }
 // }
+
+
 function toggleDarkMode() {
     const body = document.body;
     const darkModeCheckbox = document.getElementById('darkModeToggle');
@@ -21,10 +23,32 @@ function toggleDarkMode() {
             body.classList.remove('dark-mode');
         }
 
-        if (body.classList.contains('dark-mode')) {
-            image.src = './images/settings_dark.png'; 
-        } else {
-            image.src = './images/settings_light.png'; 
-        }
+        updateSettingsIcon();
     });
+}
+
+function setDarkMode(isDarkMode) {
+    const body = document.body;
+    const darkModeCheckbox = document.getElementById('darkModeToggle');
+
+    if (isDarkMode) {
+        body.classList.add('dark-mode');
+        darkModeCheckbox.checked = true;
+    } else {
+        body.classList.remove('dark-mode');
+        darkModeCheckbox.checked = false;
+    }
+
+    updateSettingsIcon();
+}
+
+function updateSettingsIcon() {
+    const body = document.body;
+    const image = document.getElementById('settings_icon');
+
+    if (body.classList.contains('dark-mode')) {
+        image.src = './images/settings_dark.png';
+    } else {
+        image.src = './images/settings_light.png';
+    }
 }

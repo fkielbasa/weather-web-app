@@ -5,6 +5,7 @@ window.onload = function() {
     changeLanguage('pl');
     changeTemperature('C');
     currentUnit = "C"
+    setDarkMode(false);
     display_mode('day');
     //darkModeCheckbox.checked = true;
 };
