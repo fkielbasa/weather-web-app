@@ -52,7 +52,7 @@ function getWeatherData(city,mode) {
     })
     .then((data) => {
       if(data){
-        console.log
+        console.log(data)
       saveCity(city);
       saveLastCitySearch(city);
       currentCityData = data;
@@ -91,7 +91,7 @@ function getIcon(condition) {
   } else if (condition === "wind"){
     return "https://i.ibb.co/HNXKgMn/oie-4115647z-FRRj-OON.gif";
   } else {
-    return "https://i.ibb.co/QctWrfc/clouds.gif";
+    return "https://i.ibb.co/Z8wtZpY/cloudy.gif";
   }
 }
 
