@@ -6,6 +6,14 @@ function saveCity(city) {
         localStorage.setItem('lastCities', JSON.stringify(limitedCities));
     }
 }
+
+function saveLastCitySearch(cityName) {
+    localStorage.setItem('lastCity', cityName);
+}
+
+function getLastCitySearch() {
+    return localStorage.getItem('lastCity');
+}
   
 function getCities() {
     const storedCities = localStorage.getItem('lastCities');
@@ -28,6 +36,6 @@ function getLastAddedCity() {
   }
 
   function clearCity(){
-    localStorage.clear();
+    localStorage.removeItem('lastCities');
     location.reload();
   }
