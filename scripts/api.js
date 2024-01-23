@@ -137,12 +137,12 @@ function WeatherForDay(data, unit, type){
       const v6 = data.currentConditions.visibility;
       const v7 = data.currentConditions.winddir;
   const detailsWeathers = [
-    { title: getInfo(0, currentLang), value: v1, status: measureUvIndex(v1) },
+    { title: getInfo(0, currentLang), value: v1, status: measureUvIndex(v1, currentLang) },
     { title: getInfo(1, currentLang), value: v2, status: "km/h" },
     { title: getInfo(2, currentLang), value: v3, status: v4 },
-    { title: getInfo(3, currentLang), value: v5, status: updateHumidityStatus(v5) },
-    { title: getInfo(4, currentLang), value: v6, status: updateVisibiltyStatus(v6) },
-    { title: getInfo(5, currentLang), value: v7, status: updateAirQualityStatus(v7) },
+    { title: getInfo(3, currentLang), value: v5, status: updateHumidityStatus(v5, currentLang) },
+    { title: getInfo(4, currentLang), value: v6, status: updateVisibiltyStatus(v6, currentLang) },
+    { title: getInfo(5, currentLang), value: v7, status: updateAirQualityStatus(v7, currentLang) },
   ];
   createWeatherTiles(detailsWeathers);
   let numCards = (type === "day") ? 24 : 7;
