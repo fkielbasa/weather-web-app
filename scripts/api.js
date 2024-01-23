@@ -33,10 +33,12 @@ document.getElementById("day_button").addEventListener("click", function() {
 function loadDefaultData(){
   if(areCitiesStored()) {
     generateLastCities();
-    getWeatherData(getLastAddedCity(),getMode());
+    const lastCity = getLastAddedCity();
+    getWeatherData(lastCity, getMode());
   }
   else {
-    getWeatherData("Tarnów",getMode());
+    const lastCity = getLastCitySearch() || "Tarnów";
+    getWeatherData(lastCity, getMode());
   }
 }
 function getWeatherData(city,mode) {
@@ -53,6 +55,7 @@ function getWeatherData(city,mode) {
       if(data){
         console.log
       saveCity(city);
+      saveLastCitySearch(city);
       currentCityData = data;
       mainIcon.src=getIcon(data.currentConditions.icon)
       mainIcon.style.display = "inline";
@@ -62,7 +65,6 @@ function getWeatherData(city,mode) {
       
       console.log(currentLang)
       console.log("Info:"+getInfo(4,"en"))
-    
       }
     })
     .catch((error) => {
