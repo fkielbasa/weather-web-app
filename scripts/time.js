@@ -14,7 +14,7 @@ function getInfo(nr, lang) {
     pl: ["Indeks UV", "Prędkość wiatru", "Wschód / Zachód", "Wilgotność", "Widoczność", "Jakość Powietrza"],
     en: ["Index UV", "Wind speed", "Sunrise / Sunset", "Humidity", "Visibility", "Air Quality"],
   };
-  return info[lang][nr];
+  return info[lang][nr]
 }
 
 function getDateTime() {

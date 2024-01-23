@@ -10,6 +10,7 @@ let currentCityData = ''
 
 function handleLangChange(){
   console.log("Teraz")
+  infoContent.innerHTML = ""
   WeatherForDay(currentCityData,currentUnit,getMode())
 }
 function handleUnitChange() {
@@ -58,23 +59,10 @@ function getWeatherData(city,mode) {
       locationIcon.style.display = "inline";
       locationText.innerHTML = `<img id="location_day_icon" src="images/location.png">${data.resolvedAddress}`;
       WeatherForDay(data,currentUnit, mode);
-      const v1 = data.currentConditions.uvindex;
-      const v2 = data.currentConditions.windspeed;
-      const v3 = data.currentConditions.sunrise;
-      const v4 = data.currentConditions.sunset;
-      const v5 = data.currentConditions.humidity;
-      const v6 = data.currentConditions.visibility;
-      const v7 = data.currentConditions.winddir;
-
-      const detailsWeathers = [
-        { title: getInfo(0, currentLang), value: v1, status: measureUvIndex(v1) },
-        { title: getInfo(1, currentLang), value: v2, status: "km/h" },
-        { title: getInfo(2, currentLang), value: v3, status: v4 },
-        { title: getInfo(3, currentLang), value: v5, status: updateHumidityStatus(v5) },
-        { title: getInfo(4, currentLang), value: v6, status: updateVisibiltyStatus(v6) },
-        { title: getInfo(5, currentLang), value: v7, status: updateAirQualityStatus(v7) },
-      ];
-      createWeatherTiles(detailsWeathers);
+      
+      console.log(currentLang)
+      console.log("Info:"+getInfo(4,"en"))
+    
       }
     })
     .catch((error) => {
@@ -140,6 +128,23 @@ function WeatherForDay(data, unit, type){
   tempDiv.innerText = currentUnit === 'F' ? celciusToFahrenheit(data.currentConditions.temp) + "°F" : data.currentConditions.temp + "°C";
   contentDay.innerHTML = "";
   contentWeek.innerHTML = "";
+  console.log(currentLang)
+  const v1 = data.currentConditions.uvindex;
+      const v2 = data.currentConditions.windspeed;
+      const v3 = data.currentConditions.sunrise;
+      const v4 = data.currentConditions.sunset;
+      const v5 = data.currentConditions.humidity;
+      const v6 = data.currentConditions.visibility;
+      const v7 = data.currentConditions.winddir;
+  const detailsWeathers = [
+    { title: getInfo(0, currentLang), value: v1, status: measureUvIndex(v1) },
+    { title: getInfo(1, currentLang), value: v2, status: "km/h" },
+    { title: getInfo(2, currentLang), value: v3, status: v4 },
+    { title: getInfo(3, currentLang), value: v5, status: updateHumidityStatus(v5) },
+    { title: getInfo(4, currentLang), value: v6, status: updateVisibiltyStatus(v6) },
+    { title: getInfo(5, currentLang), value: v7, status: updateAirQualityStatus(v7) },
+  ];
+  createWeatherTiles(detailsWeathers);
   let numCards = (type === "day") ? 24 : 7;
   for (let i = 0; i < numCards; i++) {
       let card = document.createElement("div");
