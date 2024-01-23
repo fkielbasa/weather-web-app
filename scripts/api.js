@@ -20,7 +20,8 @@ document.getElementById("search").addEventListener("submit", function(event) {
   event.preventDefault(); 
   let query = document.getElementById("query").value;
   getWeatherData(query,getMode());
-  infoContent.innerHTML = ""
+  infoContent.innerHTML = "";
+  refreshLastCities();
 });
 document.getElementById("week_button").addEventListener("click", function() {
   WeatherForDay(currentCityData,currentUnit,getMode())
@@ -188,14 +189,14 @@ function WeatherForDay(data, unit, type){
       }
   }
 }
-function generateLastCities(){
+function generateLastCities() {
   const lastCities = getCities();
   lastCities.forEach(city => {
     const button = document.createElement('button');
     button.textContent = city;
     button.addEventListener('click', function() {
       getWeatherData(city, getMode());
-      infoContent.innerHTML="";
+      infoContent.innerHTML = "";
     });
     container.appendChild(button);
   });
@@ -238,4 +239,26 @@ function getHour(time) {
 
 function celciusToFahrenheit(temp) {
   return ((temp * 9) / 5 + 32).toFixed(1);
+}
+
+function refreshLastCities() {
+  const container = document.getElementById("container_lasts");
+  const lastSearches = document.getElementById("last_searches");
+  const clearBtn = document.getElementById("clearBtn");
+
+  // Set innerHTML to an empty string to remove all child elements
+  container.innerHTML = "";
+
+  if (lastSearches) {
+    container.appendChild(lastSearches);
+  }
+
+  if (clearBtn) {
+    container.appendChild(clearBtn);
+  }
+
+  // Append new buttons after preserving elements
+  generateLastCities();
+  const lastCity = getLastAddedCity();
+  getWeatherData(lastCity, getMode());
 }
