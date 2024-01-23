@@ -1,8 +1,10 @@
+const darkModeCheckbox = document.getElementById('darkModeToggle');
+
 window.onload = function() {
-    const langTogglePL = document.querySelector('input[value="pl"]');
-    langTogglePL.checked = true;
+    currentLang = 'pl'
     changeLanguage('pl');
     changeTemperature('C');
+    currentUnit = "C"
     display_mode('day');
-    infoContent.style.display = 'none';
+    //darkModeCheckbox.checked = true;
 };
