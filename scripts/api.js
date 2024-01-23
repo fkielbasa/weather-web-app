@@ -9,8 +9,6 @@ let currentLang = 'pl'
 let currentCityData = ''
 
 function handleLangChange(){
-  console.log("Teraz")
-  infoContent.innerHTML = ""
   WeatherForDay(currentCityData,currentUnit,getMode())
 }
 function handleUnitChange() {
@@ -128,14 +126,16 @@ function WeatherForDay(data, unit, type){
   tempDiv.innerText = currentUnit === 'F' ? celciusToFahrenheit(data.currentConditions.temp) + "°F" : data.currentConditions.temp + "°C";
   contentDay.innerHTML = "";
   contentWeek.innerHTML = "";
-  console.log(currentLang)
+  infoContent.innerHTML = "";
+
   const v1 = data.currentConditions.uvindex;
-      const v2 = data.currentConditions.windspeed;
-      const v3 = data.currentConditions.sunrise;
-      const v4 = data.currentConditions.sunset;
-      const v5 = data.currentConditions.humidity;
-      const v6 = data.currentConditions.visibility;
-      const v7 = data.currentConditions.winddir;
+  const v2 = data.currentConditions.windspeed;
+  const v3 = data.currentConditions.sunrise;
+  const v4 = data.currentConditions.sunset;
+  const v5 = data.currentConditions.humidity;
+  const v6 = data.currentConditions.visibility;
+  const v7 = data.currentConditions.winddir;
+
   const detailsWeathers = [
     { title: getInfo(0, currentLang), value: v1, status: measureUvIndex(v1) },
     { title: getInfo(1, currentLang), value: v2, status: "km/h" },

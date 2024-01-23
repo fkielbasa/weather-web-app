@@ -1,11 +1,15 @@
-const darkModeCheckbox = document.getElementById('darkModeToggle');
-
 window.onload = function() {
-    currentLang = 'pl'
+    currentLang = 'pl';
     changeLanguage('pl');
     changeTemperature('C');
-    currentUnit = "C"
-    setDarkMode(false);
+    currentUnit = "C";
+    console.log(getLastSelectedTempUnit())
+    changeLanguage(getLastSelectedLanguage())
+    setDarkMode(getDarkModeFromLocalStorage());
+    changeTemperature(getLastSelectedTempUnit())
+    currentUnit = getLastSelectedTempUnit()
+    handleUnitChange()
+
+
     display_mode('day');
-    //darkModeCheckbox.checked = true;
-};
+}

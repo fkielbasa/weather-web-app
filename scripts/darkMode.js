@@ -24,6 +24,7 @@ function toggleDarkMode() {
         }
 
         updateSettingsIcon();
+        setDarkModeInLocalStorage(this.checked); // Zapisz aktualny stan w Local Storage
     });
 }
 
@@ -51,4 +52,12 @@ function updateSettingsIcon() {
     } else {
         image.src = './images/settings_light.png';
     }
+}
+
+function setDarkModeInLocalStorage(isDarkMode) {
+    localStorage.setItem('darkMode', isDarkMode);
+}
+
+function getDarkModeFromLocalStorage() {
+    return localStorage.getItem('darkMode') === 'true';
 }

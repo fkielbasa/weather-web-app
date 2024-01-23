@@ -23,6 +23,8 @@ function toggleTemperature(selectedCheckbox) {
     
     const selectedTemp = selectedCheckbox.value;
     changeTemperature(selectedTemp);
+    setLastSelectedTempUnit(selectedTemp);
+    console.log(selectedTemp)
     setCurrentUnit(selectedTemp);
 }
 function setCurrentUnit(newUnit) {
@@ -31,4 +33,10 @@ function setCurrentUnit(newUnit) {
         handleUnitChange();
     }
 }
-  
+function setLastSelectedTempUnit(tempUnit) {
+    localStorage.setItem('lastSelectedTempUnit', tempUnit);
+}
+
+function getLastSelectedTempUnit() {
+    return localStorage.getItem('lastSelectedTempUnit');
+}

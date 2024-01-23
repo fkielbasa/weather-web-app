@@ -48,6 +48,16 @@ function toggleLanguage(selectedCheckbox) {
     const selectedLang = selectedCheckbox.value;
     changeLanguage(selectedLang);
     setDaysLang(selectedLang);
+
+    setLastSelectedLanguage(selectedLang);
+}
+
+function setLastSelectedLanguage(lang) {
+    localStorage.setItem('lastSelectedLang', lang);
+}
+
+function getLastSelectedLanguage() {
+    return localStorage.getItem('lastSelectedLang');
 }
 
 window.onload = function() {
