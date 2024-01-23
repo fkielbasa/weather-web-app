@@ -41,7 +41,7 @@ function loadDefaultData(){
   }
 }
 function getWeatherData(city,mode) {
-  const apiKey = "EJ6UBL2JEQGYB3AA4ENASN62J";
+  const apiKey = "2PQU4WQTQ6H74CBM5XZ9AGSEM";
   const apiUrl = `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city}?unitGroup=metric&key=${apiKey}&contentType=json`;
   return fetch(apiUrl)
     .then((response) => {
@@ -52,7 +52,6 @@ function getWeatherData(city,mode) {
     })
     .then((data) => {
       if(data){
-        console.log(data)
       saveCity(city);
       saveLastCitySearch(city);
       currentCityData = data;
@@ -212,30 +211,6 @@ function getHour(time) {
     return `${hour}:${min} AM`;
   }
 }
-// function getDayName(date, lang) {
-//   let day = new Date(date);
-//   let days = {
-//     pl: [
-//       "Niedziela",
-//       "Poniedziałek",
-//       "Wtorek",
-//       "Środa",
-//       "Czwartek",
-//       "Piątek",
-//       "Sobota",
-//     ],
-//     en: [
-//       "Sunday",
-//       "Monday",
-//       "Tuesday",
-//       "Wednesday",
-//       "Thursday",
-//       "Friday",
-//       "Saturday",
-//     ],
-//   };
-//   return days[lang][day.getDay()];
-// }
 
 function celciusToFahrenheit(temp) {
   return ((temp * 9) / 5 + 32).toFixed(1);
